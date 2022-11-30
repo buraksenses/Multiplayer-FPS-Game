@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="55af477e-706b-4205-85f8-59398e8a7a57" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Photon-Fusion-FPS-Test-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Photon-Fusion-FPS-Test-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/0 Scripts/Movement/CharacterMovementHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/0 Scripts/Movement/CharacterMovementHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/0 Scripts/Movement/NetworkCharacterControllerPrototypeCustom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/0 Scripts/Movement/NetworkCharacterControllerPrototypeCustom.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/0 Scripts/Network/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/0 Scripts/Network/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/1 Prefabs/Player/Network Player PF.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1 Prefabs/Player/Network Player PF.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Balanced-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Balanced-Renderer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Performant-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Performant-Renderer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669813644454</updated>
       <workItem from="1669813654403" duration="637000" />
-      <workItem from="1669829868612" duration="3265000" />
+      <workItem from="1669829868612" duration="5279000" />
     </task>
     <servers />
   </component>
