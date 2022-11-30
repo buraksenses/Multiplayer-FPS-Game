@@ -104,7 +104,6 @@ public class NetworkCharacterControllerPrototypeCustom : NetworkTransform {
       horizontalVel = Vector3.Lerp(horizontalVel, default, braking * deltaTime);
     } else {
       horizontalVel      = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, maxSpeed);
-      transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Runner.DeltaTime);
     }
 
     moveVelocity.x = horizontalVel.x;
@@ -114,5 +113,10 @@ public class NetworkCharacterControllerPrototypeCustom : NetworkTransform {
 
     Velocity   = (transform.position - previousPos) * Runner.Simulation.Config.TickRate;
     IsGrounded = Controller.isGrounded;
+  }
+
+  public void Rotate(float rotationY)
+  {
+    transform.Rotate(0,rotationY*Runner.DeltaTime*rotationSpeed * 10,0);
   }
 }
