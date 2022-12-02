@@ -35,7 +35,9 @@ public class CharacterInputHandler : MonoBehaviour
         moveInputVector.x = Input.GetAxis("Horizontal");
         moveInputVector.y = Input.GetAxis("Vertical");
 
-        isJumpButtonPressed = Input.GetButtonDown("Jump");
+        //Jump input
+        if(Input.GetButtonDown("Jump"))
+            isJumpButtonPressed = true;
         
     }
 
@@ -51,6 +53,9 @@ public class CharacterInputHandler : MonoBehaviour
         
         //jump data
         networkInputData.isJumpPressed = isJumpButtonPressed;
+        
+        //Reset variables 
+        isJumpButtonPressed = false;
         
         return networkInputData;
     }

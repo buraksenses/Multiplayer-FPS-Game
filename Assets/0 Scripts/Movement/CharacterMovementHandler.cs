@@ -44,11 +44,20 @@ public class CharacterMovementHandler : NetworkBehaviour
          {
             _networkCharacterControllerPrototypeCustom.Jump();
          }
+         
+         //Check Fall Respawn
+         CheckFallRespawn();
       }
    }
 
    public void SetViewInputVector(Vector2 viewInput)
    {
       this._viewInput = viewInput;
+   }
+
+   private void CheckFallRespawn()
+   {
+      if (transform.position.y < -12)
+         transform.position = Utils.GetRandomSpawnPoint();
    }
 }
