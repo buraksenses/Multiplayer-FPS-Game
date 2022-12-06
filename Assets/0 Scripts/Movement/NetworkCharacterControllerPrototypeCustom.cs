@@ -14,6 +14,7 @@ public class NetworkCharacterControllerPrototypeCustom : NetworkTransform {
   public float braking       = 10.0f;
   public float maxSpeed      = 2.0f;
   public float rotationSpeed = 15.0f;
+  public float viewUpDownRotationSpeed = 200f;
 
   [Networked]
   [HideInInspector]
