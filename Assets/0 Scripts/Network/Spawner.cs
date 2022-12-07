@@ -12,10 +12,6 @@ public class Spawner : MonoBehaviour, INetworkRunnerCallbacks
     public NetworkPlayer playerPrefab;
 
     private CharacterInputHandler _characterInputHandler;
-    void Start()
-    {
-        
-    }
 
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
