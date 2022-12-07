@@ -12,9 +12,13 @@ public class WeaponHandler : NetworkBehaviour
     
     private float lastTimeFired = 0;
 
+    public Transform aimPoint;
+
+    public LayerMask collisionLayers;
+
     static void OnFireChanged(Changed<WeaponHandler> changed)
     {
-        Debug.Log($"{changed.Behaviour.Runner.SimulationTime} OnFireChanged value {changed.Behaviour.isFiring}");
+        //Debug.Log($"{changed.Behaviour.Runner.SimulationTime} OnFireChanged value {changed.Behaviour.isFiring}");
 
         bool isFiringCurrent = changed.Behaviour.isFiring;
         
@@ -35,11 +39,39 @@ public class WeaponHandler : NetworkBehaviour
 
     public void Fire(Vector3 aimForwardVector)
     {
-        if(Runner.SimulationTime - lastTimeFired < .15f)
+        if(Time.time - lastTimeFired < .15f)
             return;
 
         StartCoroutine(FireEffectRoutine());
-        lastTimeFired = Runner.SimulationTime;
+
+        Runner.LagCompensation.Raycast(aimPoint.position, aimForwardVector, 100, Object.InputAuthority, out var hitInfo,
+            collisionLayers,HitOptions.IncludePhysX);
+
+        float hitDistance = 100;
+        bool isHitOtherPlayer = false;
+
+        if (hitInfo.Hitbox != null)//If we hit a fusion collider
+        {
+            Debug.Log($"{Time.time} {transform.name} hit hitbox of {hitInfo.Hitbox.transform.root.name}");
+
+            if(Object.HasStateAuthority)
+                hitInfo.Hitbox.transform.root.GetComponent<HPHandler>().OnTakeDamage();
+            
+            isHitOtherPlayer = true;
+        }
+        else if (hitInfo.Collider != null)//If we hit a PhysX collider
+        {
+            Debug.Log($"{Time.time} {transform.name} hit PhysX collider of {hitInfo.Collider.transform.name}");
+        }
+
+        if (hitInfo.Distance > 0)
+            hitDistance = hitInfo.Distance;
+        
+        if(isHitOtherPlayer)
+            Debug.DrawRay(aimPoint.position,aimForwardVector*hitDistance,Color.red,1);
+        else Debug.DrawRay(aimPoint.position,aimForwardVector*hitDistance,Color.green,1);
+        
+        lastTimeFired = Time.time;
     }
 
     IEnumerator FireEffectRoutine()

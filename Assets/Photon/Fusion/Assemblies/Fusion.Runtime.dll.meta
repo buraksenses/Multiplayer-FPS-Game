@@ -3,7 +3,9 @@ guid: e725a070cec140c4caffb81624c8c787
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
-  iconMap: {}
+  iconMap:
+    Fusion.Hitbox: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000,
+      type: 0}
   executionOrder:
     Fusion.NetworkObject: 500
   defineConstraints: []
