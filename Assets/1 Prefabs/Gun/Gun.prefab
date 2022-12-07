@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 631119667507952185}
   - component: {fileID: 5181072774434922487}
   - component: {fileID: 2990992890713882938}
-  - component: {fileID: 5358211132081493143}
   m_Layer: 0
   m_Name: Barrel Cylinder
   m_TagString: Untagged
@@ -85,20 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5358211132081493143
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1170239898459471519}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1473824128515943308
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +95,6 @@ GameObject:
   - component: {fileID: 4210315271432272448}
   - component: {fileID: 4991172843540393088}
   - component: {fileID: 2751753116341932595}
-  - component: {fileID: 8514632227996534433}
   m_Layer: 0
   m_Name: Handle Cylinder
   m_TagString: Untagged
@@ -183,20 +167,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8514632227996534433
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473824128515943308}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4795449296406517814
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +178,6 @@ GameObject:
   - component: {fileID: 1594837408111251369}
   - component: {fileID: 3967346410774201307}
   - component: {fileID: 4519653017065426350}
-  - component: {fileID: 2070543018563322462}
   m_Layer: 0
   m_Name: Aim Capsule
   m_TagString: Untagged
@@ -281,20 +250,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2070543018563322462
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4795449296406517814}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7672816803560334679
 GameObject:
   m_ObjectHideFlags: 0
