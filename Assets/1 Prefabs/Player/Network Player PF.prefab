@@ -713,6 +713,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   _isDead: 0
+  playerCanvas: {fileID: 5962016551991432381, guid: f35d10c021c392b49b8bceabfb462576,
+    type: 3}
 --- !u!1 &6079478524228484806
 GameObject:
   m_ObjectHideFlags: 0
