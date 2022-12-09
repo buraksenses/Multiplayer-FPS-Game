@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HPHandler : NetworkBehaviour
 {
@@ -15,10 +16,19 @@ public class HPHandler : NetworkBehaviour
     private bool isInitialized = false;
     private const byte startingHP = 5;
 
+    public Image damageImage;
+    public Color onDamageColor;
+    private Color defaultMeshColor;
+    public MeshRenderer meshRenderer;
+
     private void Start()
     {
         HP = startingHP;
         isDead = false;
+
+        isInitialized = true;
+
+        defaultMeshColor = meshRenderer.sharedMaterial.color;
     }
 
     public void OnTakeDamage()
@@ -37,6 +47,11 @@ public class HPHandler : NetworkBehaviour
 
             isDead = true;
         }
+    }
+
+    private void OnHPReduced()
+    {
+        
     }
 
     static void OnHPChanged(Changed<HPHandler> changed)
