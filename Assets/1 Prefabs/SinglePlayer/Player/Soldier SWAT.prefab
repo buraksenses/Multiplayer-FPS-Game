@@ -1312,7 +1312,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5651834303991184832}
-  - component: {fileID: 919132148721757528}
   - component: {fileID: 919132148721757527}
   m_Layer: 0
   m_Name: Soldier SWAT
@@ -1338,18 +1337,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &919132148721757528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4982258778649044858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63922b1c6f7899f4dba83244f177d6a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &919132148721757527
 Animator:
   serializedVersion: 4
@@ -2764,8 +2751,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: AK47
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6074975672137905944, guid: 305d722d53918b949ab2931737ae74f7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 305d722d53918b949ab2931737ae74f7, type: 3}
+--- !u!1 &4982258779327870071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1089829426153175646, guid: 305d722d53918b949ab2931737ae74f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5348961206978219561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &919132149400583772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4982258779327870071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63922b1c6f7899f4dba83244f177d6a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5651834304386887373 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 311886069669880036, guid: 305d722d53918b949ab2931737ae74f7,
