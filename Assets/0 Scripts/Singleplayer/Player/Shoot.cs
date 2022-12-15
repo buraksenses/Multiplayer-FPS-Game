@@ -34,7 +34,6 @@ namespace GraduationProject.Guns
             
             // ===== EVENT ASSIGNMENTS =====
             EventManager.onUpdate += Fire;
-            EventManager.onUpdate += CharacterRotation;
         }
     
         private void Fire()
@@ -70,10 +69,7 @@ namespace GraduationProject.Guns
             }
         }
 
-        private void CharacterRotation()
-        {
-            transform.root.rotation = _fpsCamTr.rotation;
-        }
+      
         
     }
 }
