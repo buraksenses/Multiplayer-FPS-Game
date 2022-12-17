@@ -10,6 +10,7 @@ namespace GraduationProject.SinglePlayer.Player
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float moveSpeed;
+        [SerializeField] private Transform rotateObject;
         private float cameraRotaionX = 0f;
         private float cameraRotaionY = 0f;
 
@@ -46,14 +47,14 @@ namespace GraduationProject.SinglePlayer.Player
             var viewInputX = Input.GetAxis("Mouse X") * 20;
             var viewInputY = Input.GetAxis("Mouse Y") * 20;
             
-            cameraRotaionX += -(viewInputY * Time.deltaTime *
-                                20);
+            cameraRotaionX += -(viewInputY * Time.deltaTime * 10);
             cameraRotaionX = Mathf.Clamp(cameraRotaionX, -90, 90);
 
             cameraRotaionY += viewInputX * Time.deltaTime * 20;
-        
-            transform.localRotation = Quaternion.Euler(cameraRotaionX,cameraRotaionY,0);
 
+            transform.localRotation = Quaternion.Euler(0,cameraRotaionY,0);
+            // rotateObject.localRotation = Quaternion.Euler(cameraRotaionX,0,0);
+            // camera.transform.localRotation = Quaternion.Euler(cameraRotaionX,0,0);
         }
     }
 }

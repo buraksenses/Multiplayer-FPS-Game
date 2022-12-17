@@ -6,9 +6,14 @@ namespace GraduationProject.Guns
 {
     public abstract class Gun : MonoBehaviour
     {
+        public Transform effectSpawnPoint;
+        
         public int bodyDamageValue;
-        protected int headShotDamageValue;
-        protected int ammoCapacity;
+        public int headShotDamageValue;
+        public int ammoCapacity;
+        public float recoilTime;
+
+        public AudioSource gunAudioSource;
     }
 }
 
