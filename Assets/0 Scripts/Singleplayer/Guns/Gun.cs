@@ -14,6 +14,8 @@ namespace GraduationProject.Guns
         public float recoilTime;
 
         public AudioSource gunAudioSource;
+
+        protected abstract void Fire();
     }
 }
 

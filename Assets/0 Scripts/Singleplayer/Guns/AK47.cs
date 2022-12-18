@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using GraduationProject.Managers;
+using GraduationProject.SinglePlayer.Enemy;
 using GraduationProject.SinglePlayer.Managers;
 using UnityEngine;
 
@@ -15,10 +16,6 @@ namespace GraduationProject.Guns
         
         private void Awake()
         {
-            headShotDamageValue = 108;
-            ammoCapacity = 30;
-            recoilTime = .2f;
-            
             _animator = GetComponentInParent<Animator>();
         }
 
@@ -32,7 +29,7 @@ namespace GraduationProject.Guns
             EventManager.onUpdate += Fire;
         }
     
-        private void Fire()
+        protected override void Fire()
         {
             recoilTime += Time.deltaTime;
             
@@ -55,13 +52,24 @@ namespace GraduationProject.Guns
     
         private void CreateProjectileRay()
         {
-            if (!Input.GetKey(KeyCode.Mouse0) || recoilTime <= .2f) return;
+            if (!Input.GetKey(KeyCode.Mouse0) || recoilTime <= .1f) return;
     
             RaycastHit hit;
             if(Physics.Raycast(_fpsCamTr.transform.position, _fpsCamTr.transform.forward, out hit, 100,_layerMask))
             {
+                if (hit.collider.CompareTag("Head"))
+                {
+                    print("headshot");
+                    print($"{headShotDamageValue} damage given");
+                }
+                else
+                {
+                    print("bodyshot");
+                    print($"{bodyDamageValue} damage given");
+                }
+                
                 Debug.DrawRay(_fpsCamTr.transform.position,_fpsCamTr.transform.forward * 100,Color.red,2f);
-                print($"{bodyDamageValue} damage given");
+                
             }
         }
         
