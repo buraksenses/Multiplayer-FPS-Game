@@ -55,22 +55,19 @@ namespace GraduationProject.Guns
             if (!Input.GetKey(KeyCode.Mouse0) || recoilTime <= .1f) return;
     
             RaycastHit hit;
-            if(Physics.Raycast(_fpsCamTr.transform.position, _fpsCamTr.transform.forward, out hit, 100,_layerMask))
+            if (!Physics.Raycast(_fpsCamTr.transform.position, _fpsCamTr.transform.forward, out hit, 100, _layerMask)) return;
+            if (hit.collider.CompareTag("Head"))
             {
-                if (hit.collider.CompareTag("Head"))
-                {
-                    print("headshot");
-                    print($"{headShotDamageValue} damage given");
-                }
-                else
-                {
-                    print("bodyshot");
-                    print($"{bodyDamageValue} damage given");
-                }
-                
-                Debug.DrawRay(_fpsCamTr.transform.position,_fpsCamTr.transform.forward * 100,Color.red,2f);
-                
+                print("headshot");
+                print($"{headShotDamageValue} damage given");
             }
+            else
+            {
+                print("bodyshot");
+                print($"{bodyDamageValue} damage given");
+            }
+                
+            Debug.DrawRay(_fpsCamTr.transform.position,_fpsCamTr.transform.forward * 100,Color.red,2f);
         }
         
     }
