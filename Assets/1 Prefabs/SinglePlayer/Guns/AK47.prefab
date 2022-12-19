@@ -441,6 +441,7 @@ MonoBehaviour:
   ammoCapacity: 30
   recoilTime: 0.1
   gunAudioSource: {fileID: 2729778627714335787}
+  fireSound: {fileID: 8300000, guid: 458a072fd38603d429c5848c488639e3, type: 3}
 --- !u!82 &2729778627714335787
 AudioSource:
   m_ObjectHideFlags: 0

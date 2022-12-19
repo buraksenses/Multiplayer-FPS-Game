@@ -13,7 +13,7 @@ namespace GraduationProject.SinglePlayer.Guns
         private Animator _animator;
         private Transform _fpsCamTr;
         private int _layerMask = 1 << 8;
-        
+
         private void Awake()
         {
             _animator = GetComponentInParent<Animator>();
@@ -33,7 +33,7 @@ namespace GraduationProject.SinglePlayer.Guns
         {
             recoilTime += Time.deltaTime;
             
-            if (!Input.GetKey(KeyCode.Mouse0) || recoilTime <= .1f) return;
+            if (!Input.GetKey(KeyCode.Mouse0) || recoilTime < .1f) return;
             PlayShootAnimation();
             PlayMuzzleFlashEffect();
             CreateProjectileRay();
@@ -52,8 +52,10 @@ namespace GraduationProject.SinglePlayer.Guns
     
         private void CreateProjectileRay()
         {
-            if (!Input.GetKey(KeyCode.Mouse0) || recoilTime <= .1f) return;
-    
+            if (!Input.GetKey(KeyCode.Mouse0) || recoilTime < .1f) return;
+            Debug.DrawRay(_fpsCamTr.transform.position,_fpsCamTr.transform.forward * 100,Color.red,2f);
+            PlayShotSound();
+            
             RaycastHit hit;
             if (!Physics.Raycast(_fpsCamTr.transform.position, _fpsCamTr.transform.forward, out hit, 100, _layerMask)) return;
             if (hit.collider.CompareTag("Head"))
@@ -68,8 +70,11 @@ namespace GraduationProject.SinglePlayer.Guns
                 print($"{bodyDamageValue} damage given");
                 hit.collider.GetComponent<EnemyAI>().DecreaseHealth(bodyDamageValue);
             }
-                
-            Debug.DrawRay(_fpsCamTr.transform.position,_fpsCamTr.transform.forward * 100,Color.red,2f);
+        }
+
+        private void PlayShotSound()
+        {
+            gunAudioSource.PlayOneShot(fireSound);
         }
         
     }

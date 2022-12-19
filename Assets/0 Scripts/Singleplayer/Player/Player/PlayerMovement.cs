@@ -35,13 +35,14 @@ namespace GraduationProject.SinglePlayer.Player
             var dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * moveSpeed;
             var transform1 = transform;
             var moveDirection = transform1.forward * dir.z + transform1.right * dir.x;
-            transform1.localPosition += moveDirection;
+            transform1.position += moveDirection;
         }
 
         private void Jump()
         {
             if (!Input.GetKeyDown(KeyCode.Space)) return;
-            transform.position+=Vector3.up;
+            _rigidbody.AddForce(Vector3.up * 20f,ForceMode.Impulse);
+            print("zıpla");
         }
 
         private void Look()

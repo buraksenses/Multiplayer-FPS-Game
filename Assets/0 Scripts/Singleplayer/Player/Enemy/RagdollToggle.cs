@@ -38,7 +38,10 @@ namespace GraduationProject.SinglePlayer.Enemy
         {
             //children
             foreach (var collider in childrenCollider)
+            {
                 collider.enabled = active;
+            }
+                
             foreach (var rigidb in childrenRigidbody)
             {
                 rigidb.detectCollisions = active;
