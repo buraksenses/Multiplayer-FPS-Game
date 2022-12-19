@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GraduationProject.Guns
+namespace GraduationProject.SinglePlayer.Guns
 {
     public abstract class Gun : MonoBehaviour
     {

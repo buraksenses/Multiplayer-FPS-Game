@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using GraduationProject.Guns;
+using GraduationProject.SinglePlayer.Guns;
 using GraduationProject.Managers;
 using UnityEngine;
 

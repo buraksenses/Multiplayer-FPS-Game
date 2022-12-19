@@ -6,7 +6,7 @@ using GraduationProject.SinglePlayer.Enemy;
 using GraduationProject.SinglePlayer.Managers;
 using UnityEngine;
 
-namespace GraduationProject.Guns
+namespace GraduationProject.SinglePlayer.Guns
 {
     public class AK47 : Gun
     {
@@ -33,7 +33,7 @@ namespace GraduationProject.Guns
         {
             recoilTime += Time.deltaTime;
             
-            if (!Input.GetKey(KeyCode.Mouse0) || recoilTime <= .2f) return;
+            if (!Input.GetKey(KeyCode.Mouse0) || recoilTime <= .1f) return;
             PlayShootAnimation();
             PlayMuzzleFlashEffect();
             CreateProjectileRay();
@@ -60,11 +60,13 @@ namespace GraduationProject.Guns
             {
                 print("headshot");
                 print($"{headShotDamageValue} damage given");
+                hit.collider.GetComponentInParent<EnemyAI>().DecreaseHealth(headShotDamageValue);
             }
             else
             {
                 print("bodyshot");
                 print($"{bodyDamageValue} damage given");
+                hit.collider.GetComponent<EnemyAI>().DecreaseHealth(bodyDamageValue);
             }
                 
             Debug.DrawRay(_fpsCamTr.transform.position,_fpsCamTr.transform.forward * 100,Color.red,2f);
