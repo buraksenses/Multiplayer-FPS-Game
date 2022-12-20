@@ -11,14 +11,38 @@ namespace GraduationProject.SinglePlayer.Enemy
 {
     public class EnemyAI : MonoBehaviour
     {
-        private Transform _targetTransform;
+        [Header("Private Properties")]
         private int _healthValue = 100;
         
-        private EnemySpawnManager _enemySpawnManager;
+        [Header("Component References")]
+        private Transform _targetTransform;
+        private AudioSource _audioSource;
         
+        [Header("Script References")]
+        private EnemySpawnManager _enemySpawnManager;
+
         private void OnEnable()
         {
             InitializeEnemy();
+        }
+
+        private void Awake()
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
+        
+        private void InitializeEnemy()
+        {
+            transform.LookAt(_targetTransform);
+            _healthValue = 100;
+            
+            _enemySpawnManager = FindObjectOfType<EnemySpawnManager>();
+            _targetTransform = FindObjectOfType<PlayerMovement>().transform.GetChild(2);
+
+            // ===== EVENT ASSIGNMENTS =====
+            EventManager.onUpdate += MoveTowardsPlayer;
+            EventManager.onUpdate += Die;
+            EventManager.onUpdate += CheckFallRespawn;
         }
 
         public void DecreaseHealth(int damage)
@@ -29,6 +53,7 @@ namespace GraduationProject.SinglePlayer.Enemy
         private void MoveTowardsPlayer()
         {
             var transform1 = transform;
+            transform1.LookAt(_targetTransform);
             transform1.position = Vector3.MoveTowards(transform1.position, _targetTransform.position, Time.deltaTime * 2);
         }
 
@@ -42,20 +67,7 @@ namespace GraduationProject.SinglePlayer.Enemy
             EventManager.onUpdate -= MoveTowardsPlayer;
             EventManager.onUpdate -= Die;
             EventManager.onUpdate -= CheckFallRespawn;
-        }
-
-        private void InitializeEnemy()
-        {
-            _enemySpawnManager = FindObjectOfType<EnemySpawnManager>();
-            _targetTransform = FindObjectOfType<PlayerMovement>().transform.GetChild(2);
-
-            transform.LookAt(_targetTransform);
-            _healthValue = 100;
-
-            // ===== EVENT ASSIGNMENTS =====
-            EventManager.onUpdate += MoveTowardsPlayer;
-            EventManager.onUpdate += Die;
-            EventManager.onUpdate += CheckFallRespawn;
+            _audioSource.Stop();
         }
 
         private void CheckFallRespawn()
@@ -63,6 +75,11 @@ namespace GraduationProject.SinglePlayer.Enemy
             if (!(transform.position.y < -6)) return;
             _healthValue = 0;
             Die();
+        }
+
+        private void PlayFootStepSound()
+        {
+            _audioSource.Play();
         }
     }
 }
