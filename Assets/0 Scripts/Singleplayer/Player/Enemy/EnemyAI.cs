@@ -35,10 +35,13 @@ namespace GraduationProject.SinglePlayer.Enemy
         private void Die()
         {
             if (_healthValue > 0) return;
-            _enemySpawnManager.DespawnEnemies(transform);
-            EventManager.onUpdate -= MoveTowardsPlayer;
+            
+            _enemySpawnManager.DespawnEnemies(transform);           
             GetComponent<RagdollToggle>().RagdollActivate(true);
+            
+            EventManager.onUpdate -= MoveTowardsPlayer;
             EventManager.onUpdate -= Die;
+            EventManager.onUpdate -= CheckFallRespawn;
         }
 
         private void InitializeEnemy()
@@ -52,17 +55,14 @@ namespace GraduationProject.SinglePlayer.Enemy
             // ===== EVENT ASSIGNMENTS =====
             EventManager.onUpdate += MoveTowardsPlayer;
             EventManager.onUpdate += Die;
+            EventManager.onUpdate += CheckFallRespawn;
         }
 
-        private void OnCollisionExit(Collision other)
+        private void CheckFallRespawn()
         {
-            if (!other.collider.CompareTag("Plane")) return;
-            
-            DOVirtual.DelayedCall(2f, () =>
-            {
-                _healthValue = 0;
-                Die();
-            });
+            if (!(transform.position.y < -6)) return;
+            _healthValue = 0;
+            Die();
         }
     }
 }

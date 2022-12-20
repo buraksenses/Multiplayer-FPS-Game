@@ -32,7 +32,7 @@ namespace GraduationProject.SinglePlayer.Player
 
         private void Move()
         {
-            var dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * moveSpeed;
+            var dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * (moveSpeed * Time.deltaTime);
             var transform1 = transform;
             var moveDirection = transform1.forward * dir.z + transform1.right * dir.x;
             transform1.position += moveDirection;
